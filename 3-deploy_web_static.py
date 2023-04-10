@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-""" Fabric script that creates and distributes an archive to your web servers, using the function do_deploy """
-from fabric.api import *
+""" Fabric script that creates and distributes an archive
+to your web servers, using the function do_deploy """
+from fabric.api import local, put, run, env
 from os.path import isfile
 from datetime import datetime
 env.hosts = ['100.25.193.17', '54.160.116.235']
@@ -50,7 +51,8 @@ def do_deploy(archive):
 
 
 def deploy():
-    """ Function that creates and distributes an archive to your web servers """
+    """ Function that creates and distributes
+an archive to your web servers """
     archive = do_pack()
     print(archive)
     if archive is None:
