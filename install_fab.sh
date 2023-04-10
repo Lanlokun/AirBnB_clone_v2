@@ -3,6 +3,7 @@
 # Install Fabric
 
 sudo apt-get update
+sudo apt-get -y install python3-pip
 pip3 uninstall Fabric
 sudo apt-get install libffi-dev
 sudo apt-get install libssl-dev
