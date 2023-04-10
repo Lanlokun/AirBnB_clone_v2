@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """ Fabric script that distributes an archive to your web servers,"""
 
-from fabric.api import *
-from datetime import datetime
+from fabric.api import env, put, run
 from os.path import isfile
 
 env.hosts = ['100.25.193.17', '54.160.116.235']
 env.user = "ubuntu"
+
 
 def do_deploy(archive):
     """ Function that distributes an archive to your web servers """
@@ -36,5 +36,5 @@ def do_deploy(archive):
         print("Linked")
         print("New version deployed!")
         return True
-    except:
+    except Exception:
         return False
