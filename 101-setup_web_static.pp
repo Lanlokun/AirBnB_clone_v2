@@ -34,15 +34,19 @@ file { '/etc/nginx/sites-available/default':
 }
 
 file { '/data':
-  ensure => 'directory'
+  ensure => 'directory',
+  mode => '0755',
 }
 
 file { '/data/web_static':
   ensure => 'directory',
+  mode   => '0755',
+
 }
 
 file { '/data/web_static/releases':
   ensure => 'directory',
+  mode   => '0755',
   require => File['/data/web_static'],
 }
 
@@ -61,6 +65,7 @@ file { '/data/web_static/releases/test':
 
 file { '/data/web_static/releases/test/index.html':
   ensure => 'file',
+  mode   => '0755',
   content => '<html><body>Hello, World!</body></html>',
   require => File['/data/web_static/releases/test'],
 }
