@@ -3,7 +3,6 @@
 from fabric.api import *
 from os.path import isfile
 from datetime import datetime
-
 env.hosts = ['100.25.193.17', '54.160.116.235']
 env.user = "ubuntu"
 
@@ -16,6 +15,8 @@ def do_pack():
     time = datetime.now().strftime("%Y%m%d%H%M%S")
     file = "versions/web_static_{}.tgz".format(time)
     local("tar -cvzf {} web_static".format(file))
+
+
 def do_deploy(archive):
     """ Function that distributes an archive to your web servers """
     if isfile(archive) is False:
@@ -51,6 +52,8 @@ def do_deploy(archive):
 def deploy():
     """ Function that creates and distributes an archive to your web servers """
     archive = do_pack()
+    print(archive)
     if archive is None:
+        print("No archive")
         return False
     return do_deploy(archive)
