@@ -13,6 +13,6 @@ if [ -d /data/web_static/current ]; then
     sudo rm -rf /data/web_static/current
 fi
 sudo symlink /data/web_static/current /data/web_static/releases/test/
-sudo chown -R $whoami:$id /data/
+sudo chown -R ubuntu:ubuntu /data/
 sudo sed -i '38i \\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}' /etc/nginx/sites-available/default
 sudo service nginx restart
