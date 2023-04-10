@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-""" Fabric script that that deletes out-of-date archives, using the function """
+""" Fabric script that that deletes out-of-date archives,
+using the function """
 
-from fabric.api import *
-from datetime import datetime
-from os.path import isfile, getsize
+from fabric.api import local, env, run, cd
 
 
 env.hosts = ['100.25.193.17', '54.160.116.235']
 env.user = "ubuntu"
+
 
 def do_clean(number=0):
     """ Function that deletes out-of-date archives """
@@ -24,5 +24,3 @@ def do_clean(number=0):
         print(files)
         for file in files:
             run("rm -rf {}".format(file))
-
-    
