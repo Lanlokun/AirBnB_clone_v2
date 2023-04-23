@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" Script that starts a Flask web application that displays a list of states """
+""" Script that starts a Flask web application
+that displays a list of states """
 
 from flask import Flask, render_template
 from models import storage
@@ -16,7 +17,6 @@ def states_list():
     return render_template('7-states_list.html', states=states)
 
 
-
 @app.teardown_appcontext()
 def teardown_db(exception):
     """ closes the current SQLAlchemy Session """
@@ -25,4 +25,3 @@ def teardown_db(exception):
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
-
