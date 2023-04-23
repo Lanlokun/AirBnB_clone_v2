@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Script that starts a Flask web application and displays a HTML 
+""" Script that starts a Flask web application and displays a HTML
 ODD/EVEN page if n is an integer  """
 
 from flask import Flask, render_template
@@ -17,7 +17,6 @@ def index():
 def hbnb():
     """ Function that returns HBNB """
     return 'HBNB'
-
 
 
 @app.route('/c/<text>', strict_slashes=False)
