@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """ Script that starts a Flask web application that displays a HTML page
  only if n is an integer """
 
