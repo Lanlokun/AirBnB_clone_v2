@@ -10,3 +10,6 @@
 
 
 # 3. Python is cool!
+
+
+# 4. Is it a number?
