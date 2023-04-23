@@ -20,3 +20,9 @@
 
 # 6. Odd or even?
 
+
+# 7. Improve engines
+
+
+# 8. List of states
+
