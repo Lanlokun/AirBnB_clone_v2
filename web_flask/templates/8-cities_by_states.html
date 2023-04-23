@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<HTML lang="en">
+    <HEAD>
+        <TITLE>HBNB</TITLE>
+    </HEAD>
+    <BODY>
+        <H1>States</H1>
+        <UL>
+            {{#each states}}
+                <LI>{{this.id}}: <B>{{this.name}}</B>
+                    <UL>
+                        {{#each this.cities}}
+                            <LI>{{this.id}}: <B>{{this.name}}</B></LI>
+                        {{/each}}
+                    </UL>
+                </LI>
+            {{/each}}
+
+        </UL>
+    </BODY>
+</HTML>
