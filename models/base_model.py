@@ -72,6 +72,11 @@ class BaseModel:
         models.storage.new(self)
         models.storage.save()
 
+    def place_amenity(self):
+        '''
+        creates the association table
+        '''
+        return "place_amenity"
     def to_dict(self):
         '''
         creates dictionary of the class
