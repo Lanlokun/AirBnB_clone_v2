@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-""" Script that starts a Flask web application
- with a c route """
+
+""" Script that starts a Flask web application with a python route """
 
 from flask import Flask
 
@@ -23,6 +23,13 @@ def hbnb():
 def c(text):
     """ Function that returns C <text> """
     return 'C {}'.format(text.replace('_', ' '))
+
+
+@app.route('/python/', defaults={'text': 'is cool'}, strict_slashes=False)
+@app.route('/python/<text>', strict_slashes=False)
+def python(text):
+    """ Function that returns Python <text> """
+    return 'Python {}'.format(text.replace('_', ' '))
 
 
 if __name__ == "__main__":
