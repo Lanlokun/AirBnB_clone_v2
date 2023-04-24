@@ -3,14 +3,11 @@
     Define the class Place.
 '''
 from models.base_model import BaseModel, Base
-from models.amenity import Amenity
-from models.engine.file_storage import FileStorage
 from sqlalchemy import Column, String, ForeignKey, Integer, Float, Table
 from sqlalchemy.orm import relationship
 from os import getenv
 
 storage_type = getenv("HBNB_TYPE_STORAGE")
-
 
 metadata = Base.metadata
 place_amenity = Table("place_amenity", metadata,
@@ -20,6 +17,18 @@ place_amenity = Table("place_amenity", metadata,
                         Column('amenity_id', String(60),
                                 ForeignKey('amenities.id'),
                                 nullable=False))
+
+class Amenity(BaseModel, Base):
+    '''
+        Define the class Amenity that inherits from BaseModel.
+    '''
+    __tablename__ = 'amenities'
+    name = Column(String(128), nullable=False)
+
+    if storage_type == 'db':
+        place_amenities = relationship("Place", secondary=place_amenity,
+                                       back_populates="amenities")
+        
 
 
 class Place(BaseModel, Base):
@@ -62,6 +71,8 @@ class Place(BaseModel, Base):
 
         @property
         def amenities(self):
+            from models.engine.file_storage import FileStorage
+
             """
             returns the list of Amenity instances based on the attribute
             amenity_ids that contains all Amenity.id linked to the Place
